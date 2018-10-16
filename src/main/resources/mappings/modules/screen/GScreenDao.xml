@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.screen.dao.GScreenDao">
+    
+	<sql id="gScreenColumns">
+		a.id AS "id",
+		a.consumer_sum AS "consumerSum",
+		a.enterprise_sum AS "enterpriseSum",
+		a.sum_of_money AS "sumOfMoney",
+		a.region_money_top AS "regionMoneyTop",
+		a.region_business_top AS "regionBusinessTop",
+		a.trade_online_charts AS "tradeOnlineCharts",
+		a.core_area AS "coreArea",
+		a.cloud_soft_top AS "cloudSoftTop",
+		a.search_hot_words AS "searchHotWords",
+		a.extends1 AS "extends1",
+		a.extends2 AS "extends2",
+		a.template_name AS "templateName",
+		a.template_status AS "templateStatus",
+		a.update_date AS "updateDate"
+	</sql>
+	
+	<sql id="gScreenJoins">
+	</sql>
+    
+	<select id="get" resultType="GScreen">
+		SELECT 
+			<include refid="gScreenColumns"/>
+		FROM g_screen a
+		<include refid="gScreenJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GScreen">
+		SELECT 
+			<include refid="gScreenColumns"/>
+		FROM g_screen a
+		<include refid="gScreenJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GScreen">
+		SELECT 
+			<include refid="gScreenColumns"/>
+		FROM g_screen a
+		<include refid="gScreenJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO g_screen(
+			consumer_sum,
+			enterprise_sum,
+			sum_of_money,
+			region_money_top,
+			region_business_top,
+			trade_online_charts,
+			core_area,
+			cloud_soft_top,
+			search_hot_words,
+			extends1,
+			extends2,
+			template_name,
+			template_status,
+			update_date
+		) VALUES (
+			#{consumerSum},
+			#{enterpriseSum},
+			#{sumOfMoney},
+			#{regionMoneyTop},
+			#{regionBusinessTop},
+			#{tradeOnlineCharts},
+			#{coreArea},
+			#{cloudSoftTop},
+			#{searchHotWords},
+			#{extends1},
+			#{extends2},
+			#{templateName},
+			#{templateStatus},
+			now()
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE g_screen SET 	
+			consumer_sum = #{consumerSum},
+			enterprise_sum = #{enterpriseSum},
+			sum_of_money = #{sumOfMoney},
+			region_money_top = #{regionMoneyTop},
+			region_business_top = #{regionBusinessTop},
+			trade_online_charts = #{tradeOnlineCharts},
+			core_area = #{coreArea},
+			cloud_soft_top = #{cloudSoftTop},
+			search_hot_words = #{searchHotWords},
+			extends1 = #{extends1},
+			extends2 = #{extends2},
+			template_name = #{templateName},
+			template_status = #{templateStatus},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	<update id="updateStatus">
+		UPDATE g_screen SET
+			template_status = '0'
+		WHERE template_status = '1'
+	</update>
+	<update id="delete">
+		DELETE FROM g_screen
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.screen.dao.EScreenParentDao">
+    
+	<sql id="eScreenParentColumns">
+		a.id AS "id",
+		a.img_url AS "imgUrl",
+		a.business_name AS "businessName",
+		a.parent_id AS "parent.id",
+		a.if_is_parent AS "ifIsParent",
+		a.status AS "status",
+		a.updat_date AS "updatDate"
+	</sql>
+	
+	<sql id="eScreenParentJoins">
+	</sql>
+    
+	<select id="get" resultType="EScreenParent">
+		SELECT 
+			<include refid="eScreenParentColumns"/>
+		FROM e_screen_parent a
+		<include refid="eScreenParentJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="EScreenParent">
+		SELECT 
+			<include refid="eScreenParentColumns"/>
+		FROM e_screen_parent a
+		<include refid="eScreenParentJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="EScreenParent">
+		SELECT 
+			<include refid="eScreenParentColumns"/>
+		FROM e_screen_parent a
+		<include refid="eScreenParentJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	<select id="queryParent" resultType="EScreenParent">
+		select a.business_name AS "businessName",
+		 a.id AS "id"
+		 from e_screen_parent a where if_is_parent='1'
+	</select>
+	<insert id="insert">
+		INSERT INTO e_screen_parent(
+
+			img_url,
+			business_name,
+			parent_id,
+			if_is_parent,
+			status,
+			updat_date
+		) VALUES (
+			#{imgUrl},
+			#{businessName},
+			#{parent.id},
+			#{ifIsParent},
+			#{status},
+			now()
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE e_screen_parent SET 	
+			img_url = #{imgUrl},
+			business_name = #{businessName},
+			parent_id = #{parent.id},
+			if_is_parent = #{ifIsParent},
+			status = #{status},
+			updat_date =now()
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM e_screen_parent
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

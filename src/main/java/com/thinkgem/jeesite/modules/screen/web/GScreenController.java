@@ -55,14 +55,14 @@ public class GScreenController extends BaseController {
 	public String list(GScreen gScreen, HttpServletRequest request, HttpServletResponse response, Model model) {
 		Page<GScreen> page = gScreenService.findPage(new Page<GScreen>(request, response), gScreen);
 		model.addAttribute("page", page);
-		return "modules/screen/gScreenList";
+		return "modules/screen/gscreen/gScreenList";
 	}
 
 	@RequiresPermissions("screen:gScreen:view")
 	@RequestMapping(value = "form")
 	public String form(GScreen gScreen, Model model) {
 		model.addAttribute("gScreen", gScreen);
-		return "modules/screen/gScreenForm";
+		return "modules/screen/gscreen/gScreenForm";
 	}
 
 	@RequiresPermissions("screen:gScreen:edit")
@@ -119,7 +119,7 @@ public class GScreenController extends BaseController {
 		model.addAttribute("moneyMap", moneyMap);
 		model.addAttribute("onlieMap", onlieMap);
 		model.addAttribute("cloudMap", cloudMap);
-		return "modules/screen/preGScreen";
+		return "modules/screen/gscreen/preGScreen";
 	}
 private static String  getJson(String [] name,String [] value){
 	Map map = new LinkedHashMap();//定义一个map集合

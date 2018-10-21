@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.screen.dao.EScreenChildredDao">
+    
+	<sql id="eScreenChildredColumns">
+		a.id AS "id",
+		a.img_url AS "imgUrl",
+		a.company_name AS "companyName",
+		a.company_service AS "companyService",
+		a.company_amount AS "companyAmount",
+		a.company_person_rece AS "companyPersonRece",
+		a.company_product AS "companyProduct",
+		a.update_date AS "updateDate",
+		a.status AS "status",
+		a.parent_id AS "parentId"
+	</sql>
+	
+	<sql id="eScreenChildredJoins">
+	</sql>
+    
+	<select id="get" resultType="EScreenChildred">
+		SELECT 
+			<include refid="eScreenChildredColumns"/>
+		FROM e_screen_childred a
+		<include refid="eScreenChildredJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="EScreenChildred">
+		SELECT 
+			<include refid="eScreenChildredColumns"/>
+		FROM e_screen_childred a
+		<include refid="eScreenChildredJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="EScreenChildred">
+		SELECT 
+			<include refid="eScreenChildredColumns"/>
+		FROM e_screen_childred a
+		<include refid="eScreenChildredJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO e_screen_childred(
+
+			img_url,
+			company_name,
+			company_service,
+			company_amount,
+			company_person_rece,
+			company_product,
+			update_date,
+			status,
+			parent_id
+		) VALUES (
+			#{imgUrl},
+			#{companyName},
+			#{companyService},
+			#{companyAmount},
+			#{companyPersonRece},
+			#{companyProduct},
+			now(),
+			#{status},
+			#{parentId}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE e_screen_childred SET 	
+			img_url = #{imgUrl},
+			company_name = #{companyName},
+			company_service = #{companyService},
+			company_amount = #{companyAmount},
+			company_person_rece = #{companyPersonRece},
+			company_product = #{companyProduct},
+			update_date = now(),
+			status = #{status},
+			parent_id = #{parentId}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM e_screen_childred
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

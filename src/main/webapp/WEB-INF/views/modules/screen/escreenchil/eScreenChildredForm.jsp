@@ -114,7 +114,11 @@
 		<div class="control-group">
 			<label class="control-label">公司名称：</label>
 			<div class="controls">
-				<form:input path="companyName" htmlEscape="false" maxlength="100" class="input-xlarge "/>
+				<select name="parentId" class="input-xlarge ">
+					<c:forEach items="${listParent}" var="item">
+						<option value="${item.id}" <c:if test="${item.id==parentId}">selected</c:if>>${item.businessName}</option>
+					</c:forEach>
+				</select>
 			</div>
 		</div>
 		<div class="control-group">

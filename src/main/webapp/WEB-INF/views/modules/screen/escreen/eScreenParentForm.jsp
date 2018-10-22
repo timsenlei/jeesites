@@ -36,8 +36,8 @@
 		<div class="control-group">
 			<label class="control-label">图片地址：</label>
 			<div class="controls">
-				<form:input path="imgUrl" htmlEscape="false" maxlength="200" class="input-xlarge required"/>
-				<span class="help-inline"><font color="red">*</font> </span>
+				<input type="hidden" id="image" name="imgUrl" value="${eScreenParent.imgUrl}" />
+				<sys:ckfinder input="image" type="thumb" uploadPath="/cms/article" selectMultiple="false"/>
 			</div>
 		</div>
 		<div class="control-group">
@@ -50,9 +50,9 @@
 			<label class="control-label">父节点：</label>
 			<div class="controls">
 				<select name="parent.id" class="input-xlarge ">
-					<option value="" >无</option>
+					<option value="0" >无</option>
 					<c:forEach items="${parents}" var="par">
-						<option value="${par.id}" <c:if test="${par.id==parent.id}">selected</c:if>>${par.businessName}</option>
+						<option value="${par.id}" <c:if test="${par.id==eScreenParent.parent.id}">selected</c:if>>${par.businessName}</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -61,8 +61,8 @@
 			<label class="control-label">是否为父节点：</label>
 			<div class="controls">
 				<select name="ifIsParent">
-					<option value="0" <c:if test="${ifIsParent=='0'}">selected</c:if>	>否</option>
-						<option value="1" <c:if test="${ifIsParent=='1'}">selected</c:if>>是</option>
+					<option value="0" <c:if test="${eScreenParent.ifIsParent=='0'}">selected</c:if>	>否</option>
+					<option value="1" <c:if test="${eScreenParent.ifIsParent=='1'}">selected</c:if>>是</option>
 				</select>
 			</div>
 		</div>

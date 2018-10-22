@@ -29,7 +29,9 @@
 		FROM e_screen_parent a
 		<include refid="eScreenParentJoins"/>
 		<where>
-			
+			<if test="ifIsParent!='' and ifIsParent!=null">
+				a.if_is_parent=${ifIsParent}
+			</if>
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">

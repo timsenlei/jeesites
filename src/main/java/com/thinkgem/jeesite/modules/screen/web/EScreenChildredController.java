@@ -9,7 +9,9 @@ import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 import com.thinkgem.jeesite.common.web.BaseController;
 import com.thinkgem.jeesite.modules.screen.entity.EScreenChildred;
+import com.thinkgem.jeesite.modules.screen.entity.EScreenParent;
 import com.thinkgem.jeesite.modules.screen.service.EScreenChildredService;
+import com.thinkgem.jeesite.modules.screen.service.EScreenParentService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +38,8 @@ public class EScreenChildredController extends BaseController {
 
 	@Autowired
 	private EScreenChildredService eScreenChildredService;
+	@Autowired
+	private EScreenParentService eScreenParentService;
 	
 	@ModelAttribute
 	public EScreenChildred get(@RequestParam(required=false) String id) {
@@ -59,7 +64,12 @@ public class EScreenChildredController extends BaseController {
 	@RequiresPermissions("screen:escreenchil:eScreenChildred:view")
 	@RequestMapping(value = "form")
 	public String form(EScreenChildred eScreenChildred, Model model) {
+		EScreenParent parent=new EScreenParent();
+		parent.setIfIsParent("0");
+		List<EScreenParent> listParent=eScreenParentService.findList(parent);
 		model.addAttribute("eScreenChildred", eScreenChildred);
+		model.addAttribute("listParent", listParent);
+
 		return "modules/screen/escreenchil/eScreenChildredForm";
 	}
 

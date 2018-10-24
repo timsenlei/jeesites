@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.screen.dao.PPTControlDao">
+    
+	<sql id="pPTControlColumns">
+		a.id AS "id",
+		a.imgurl AS "imgurl",
+		a.controlword AS "controlword",
+		a.status AS "status",
+		a.creatdate AS "creatdate",
+		a.updatedate AS "updatedate",
+		a.which_screen AS "whichScreen",
+		a.extends1 AS "extends1",
+		a.extends2 AS "extends2"
+	</sql>
+	
+	<sql id="pPTControlJoins">
+	</sql>
+    
+	<select id="get" resultType="PPTControl">
+		SELECT 
+			<include refid="pPTControlColumns"/>
+		FROM ppt_control a
+		<include refid="pPTControlJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="PPTControl">
+		SELECT 
+			<include refid="pPTControlColumns"/>
+		FROM ppt_control a
+		<include refid="pPTControlJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="PPTControl">
+		SELECT 
+			<include refid="pPTControlColumns"/>
+		FROM ppt_control a
+		<include refid="pPTControlJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO ppt_control(
+			imgurl,
+			controlword,
+			status,
+			creatdate,
+			updatedate,
+			which_screen,
+			extends1,
+			extends2
+		) VALUES (
+			#{imgurl},
+			#{controlword},
+			#{status},
+			now(),
+			#{updatedate},
+			#{whichScreen},
+			#{extends1},
+			#{extends2}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE ppt_control SET 	
+			imgurl = #{imgurl},
+			controlword = #{controlword},
+			status = #{status},
+			updatedate = now(),
+			which_screen = #{whichScreen},
+			extends1 = #{extends1},
+			extends2 = #{extends2}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM ppt_control
+		WHERE id = #{id}
+	</update>
+	<update id="updateStatus">
+		UPDATE ppt_control SET
+
+		status = '0'
+		WHERE status = '1' and which_screen=#{screen}
+	</update>
+
+</mapper>

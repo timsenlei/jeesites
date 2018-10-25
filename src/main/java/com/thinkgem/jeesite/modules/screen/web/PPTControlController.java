@@ -74,7 +74,20 @@ public class PPTControlController extends BaseController {
 		addMessage(redirectAttributes, "保存PPT成功");
 		return "redirect:"+Global.getAdminPath()+"/screen/ppt/pPTControl/?repage";
 	}
-	
+	@RequiresPermissions("screen:ppt:pPTControl:edit")
+	@RequestMapping(value = "updateIng")
+	public String updateIng(@RequestParam(required=false) String id, @RequestParam String whichScreen, Model model, RedirectAttributes redirectAttributes) {
+		pPTControlService.updateStatus(whichScreen);
+		PPTControl entity = null;
+		if (StringUtils.isNotBlank(id)){
+			entity = pPTControlService.get(id);
+		}
+		entity.setStatus("1");
+		pPTControlService.save(entity);
+		addMessage(redirectAttributes, "设置成功");
+		return "redirect:"+Global.getAdminPath()+"/screen/ppt/pPTControl/?repage";
+	}
+
 	@RequiresPermissions("screen:ppt:pPTControl:edit")
 	@RequestMapping(value = "delete")
 	public String delete(PPTControl pPTControl, RedirectAttributes redirectAttributes) {

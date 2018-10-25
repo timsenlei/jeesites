@@ -36,7 +36,7 @@
 				<th>所属屏幕</th>
 				<th>控制台文字</th>
 				<th>使用状态</th>
-				<th>图片路径</th>
+
 				<shiro:hasPermission name="screen:ppt:pPTControl:edit"><th>操作</th></shiro:hasPermission>
 			</tr>
 		</thead>
@@ -46,9 +46,10 @@
 				<td>${pPTControl.whichScreen}</td>
 				<td>${pPTControl.controlword}</td>
 				<td><c:if test="${pPTControl.status=='1'}">使用中</c:if></td>
-				<td>${pPTControl.imgurl}</td>
+
 				<shiro:hasPermission name="screen:ppt:pPTControl:edit"><td>
     				<a href="${ctx}/screen/ppt/pPTControl/form?id=${pPTControl.id}">修改</a>
+    				<a href="${ctx}/screen/ppt/pPTControl/updateIng?id=${pPTControl.id}&whichScreen=${pPTControl.whichScreen}">设置使用中</a>
 					<a href="${ctx}/screen/ppt/pPTControl/delete?id=${pPTControl.id}" onclick="return confirmx('确认要删除该PPT吗？', this.href)">删除</a>
 				</td></shiro:hasPermission>
 			</tr>

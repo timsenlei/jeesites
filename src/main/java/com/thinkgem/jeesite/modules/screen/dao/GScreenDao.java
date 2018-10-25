@@ -15,4 +15,5 @@ import com.thinkgem.jeesite.modules.screen.entity.GScreen;
 @MyBatisDao
 public interface GScreenDao extends CrudDao<GScreen> {
     public void updateStatus();
+
 }

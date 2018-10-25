@@ -1,0 +1,237 @@
+html,body,ul,li{
+ 	list-style: none;
+    margin: 0;
+    padding: 0;
+}
+*{
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+	color: #fff;
+}	
+html,body {
+	width: 100%;
+	height: 100%;
+	text-shadow: 0 0 10px #6c96ff, 0 0 10px #6c96ff,
+    0 0 10px #6c96ff;
+}
+body {
+	background: url(../images/bj.png) no-repeat;
+	background-size: 100% 100%;
+    position: relative;
+   font-family: "锐字逼格青春粗黑体简2.0" !important;
+   color: #fff;
+   padding: 60px 80px 0;
+   font-size: 16px;
+   
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.text-center{
+	text-align: center;
+}
+/*首页*/
+.indexfoot{
+	width: 1660px;
+	height: 235px;
+	position: fixed;
+	bottom: 64px;
+	left: 110px;
+}
+
+.indexfoot li{
+	width: 274px;
+	height: 235px;
+	float: left;
+	background: url(../images/indexbar.png) no-repeat center center;
+	background-size: 90%;
+	padding: 20px;
+	margin: 0 70px;
+}
+.indexfoot li a{
+	
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	text-align: center;
+	padding: 34px 0;
+	font-size: 26px;
+}
+
+.indexfoot li a img{
+	margin-bottom: 14px;
+	width: 64px;
+}
+/*类目*/
+.title{
+	height: 53px;
+	text-align: center;
+	font-size: 32px;
+	line-height: 53px;
+	margin: 10px 0;
+}
+.title img{
+	width: 50px;
+	height: 53px;
+	vertical-align: -12px;
+	margin-right: 24px;
+}
+.title span{
+	font-size: 28px;
+}
+.overflow{
+	overflow: hidden;
+}
+.section1{
+	width: 1600px;
+	margin: 0 auto 0;
+}
+
+.section1 li{
+	width: 400px;
+	height: 214px;
+	background: url(../images/bjsmall.png) no-repeat;
+	float: left;
+	padding: 20px 20px;
+	
+}
+.section1 li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 56px 30px;
+	
+}
+.section1 li img{
+	width: 100px;
+	height: 62px;
+	display: block;
+}
+.section1 li div{
+	width: 180px;
+	height: 62px;
+	line-height: 30px;
+	font-size: 22px;
+	padding: 4px 0;
+	
+}
+/*详情页*/
+.header{
+	width: 1772px;
+	height: 340px;
+	background: url(../images/border1.png)  no-repeat center bottom;
+	margin: 50px auto 0;
+	padding:  50px 71px;
+}
+.logobox{
+	width: 340px;
+	margin-top: 42px;
+}
+.logobox img{
+	width: 230px;
+	height: 120px;
+}
+.header_title{
+	width: 830px;
+	height: 214px;
+	margin-right: 30px;
+}
+.header_title h2{
+	font-size: 48px;
+	margin: 0 0 20px;
+}
+
+.header_list li{
+	float: left;
+	padding: 16px 24px;
+	margin: 0 24px 24px 0;
+	background: rgba(27,128,221,.3);
+	border-radius: 6px;
+	border: 1px solid #0578d9;
+	box-shadow:0px 0px 20px rgba(70,244,255,.3) inset;
+	font-size: 22px;
+}
+.header_r{
+	width: 430px;
+	height: 148px;
+	background: url(../images/border2.png)  no-repeat left center ;
+	text-align: center;
+	padding: 20px 0;
+	text-shadow: none;
+	margin-top: 34px;
+	text-indent: 50px;
+}
+.header_r1{
+	font-size: 36px;
+	color: #ff852b;
+}
+.header_r1 span{
+	font-size: 50px;
+}
+.header_r p{
+	margin-top: 10px;
+	font-size: 22px;
+	color: #6eb6ff;
+	
+}
+.titles{
+	color: #7cc1ff;
+	font-size: 32px;
+	padding-left: 50px;
+	margin: 50px 0  60px;
+	text-shadow: none;
+}
+.details{
+	width: 1710px;
+	margin: 0 auto;
+}
+.details li{
+	width: 510px;
+	height: 120px;
+	float: left;
+	margin: 0 30px 64px;
+}
+.detailsimg{
+	width: 194px;
+	height: 120px;
+	border-radius: 6px;
+	background: #fff;
+	text-align: center;
+	overflow: hidden;
+}
+.detailsimg img{
+	height: 100%;
+}
+.detailstext{
+	width: 290px;
+    font-size: 28px;
+    line-height: 36px;
+    padding: 22px 0;
+}
+/*返回*/
+.back{
+	width: 100px;
+	height: 30px;
+	position: fixed;
+	top: 80px;
+	left: 80px;
+	z-index: 1000;
+    font-size: 24px;
+    line-height: 30px;
+    display: block;
+    text-shadow: none;
+    color: #6DB2F3;
+}
+
+.back img{
+		height: 28px;
+	    vertical-align: -4px;
+	    margin-right: 6px;
+
+}

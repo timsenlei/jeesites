@@ -49,5 +49,7 @@ public class EScreenParentService extends CrudService<EScreenParentDao, EScreenP
 	public List<EScreenParent> queryParent(){
 		return  eScreenParentDao.queryParent();
 	}
-	
+	public List<EScreenParent> querySecond(String parentId){
+		return eScreenParentDao.querySecond(parentId);
+	}
 }

@@ -18,5 +18,5 @@ import java.util.List;
 @MyBatisDao
 public interface EScreenParentDao extends CrudDao<EScreenParent> {
 	public List<EScreenParent> queryParent();
-
+	public List<EScreenParent> querySecond(String parentId);
 }

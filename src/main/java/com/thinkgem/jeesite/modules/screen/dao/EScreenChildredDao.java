@@ -8,6 +8,8 @@ import com.thinkgem.jeesite.common.persistence.CrudDao;
 import com.thinkgem.jeesite.common.persistence.annotation.MyBatisDao;
 import com.thinkgem.jeesite.modules.screen.entity.EScreenChildred;
 
+import java.util.List;
+
 /**
  * 公司详细信息配置DAO接口
  * @author zl
@@ -15,5 +17,5 @@ import com.thinkgem.jeesite.modules.screen.entity.EScreenChildred;
  */
 @MyBatisDao
 public interface EScreenChildredDao extends CrudDao<EScreenChildred> {
-	
+	public List<EScreenChildred>  thirdScreen(long id);
 }

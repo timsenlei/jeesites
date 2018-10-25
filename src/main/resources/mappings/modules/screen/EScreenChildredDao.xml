@@ -19,13 +19,20 @@
 	</sql>
     
 	<select id="get" resultType="EScreenChildred">
-		SELECT 
+		SELECT
 			<include refid="eScreenChildredColumns"/>
 		FROM e_screen_childred a
 		<include refid="eScreenChildredJoins"/>
 		WHERE a.id = #{id}
 	</select>
-	
+	<select id="thirdScreen" resultType="EScreenChildred">
+		SELECT
+		<include refid="eScreenChildredColumns"/>
+		FROM e_screen_childred a
+		<include refid="eScreenChildredJoins"/>
+		WHERE a.parent_id = #{id}  and a.status='1'
+	</select>
+
 	<select id="findList" resultType="EScreenChildred">
 		SELECT 
 			<include refid="eScreenChildredColumns"/>

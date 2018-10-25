@@ -46,6 +46,7 @@
 				<td>
     				<a href="${ctx}/screen/escreen/eScreenParent/form?id=${eScreenParent.id}">修改</a>
 					<a href="${ctx}/screen/escreen/eScreenParent/delete?id=${eScreenParent.id}" onclick="return confirmx('确认要删除该E屏吗？', this.href)">删除</a>
+					<a href="${ctx}/screen/escreen/eScreenParent/firstPage">预览</a>
 				</td>
 			</tr>
 		</c:forEach>

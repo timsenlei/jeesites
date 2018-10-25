@@ -60,8 +60,14 @@
 	</select>
 	<select id="queryParent" resultType="EScreenParent">
 		select a.business_name AS "businessName",
-		 a.id AS "id"
+		 a.id AS "id",
+		 a.img_url AS "imgUrl"
 		 from e_screen_parent a where if_is_parent='1'
+	</select>
+	<select id="querySecond" resultType="EScreenParent">
+		select
+		<include refid="eScreenParentColumns"/>
+		 from e_screen_parent a where parent_id=${parentId}
 	</select>
 	<insert id="insert">
 		INSERT INTO e_screen_parent(

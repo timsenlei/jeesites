@@ -24,6 +24,8 @@
 				${adminPath}/** = user
 				/act/editor/** = user
 				/ReportServer/** = user
+				/checkscreen/** = anon
+				/b/** = anon
 			</value>
 		</constructor-arg>
 	</bean>

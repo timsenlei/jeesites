@@ -51,5 +51,7 @@ public class PPTControlService extends CrudService<PPTControlDao, PPTControl> {
 	public void updateStatus(String screen) {
 		pptControlDao.updateStatus(screen);
 	}
-	
+	public PPTControl searchPPT(String screen){
+		return pptControlDao.searchPPT(screen);
+	}
 }

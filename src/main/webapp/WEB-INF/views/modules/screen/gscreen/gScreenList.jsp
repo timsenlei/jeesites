@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>G屏管理</title>
+	<title>E屏管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -18,8 +18,8 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx}/screen/gScreen/">G屏列表</a></li>
-		<shiro:hasPermission name="screen:gScreen:edit"><li><a href="${ctx}/screen/gScreen/form">G屏添加</a></li></shiro:hasPermission>
+		<li class="active"><a href="${ctx}/screen/gScreen/">E屏列表</a></li>
+		<shiro:hasPermission name="screen:gScreen:edit"><li><a href="${ctx}/screen/gScreen/form">E屏添加</a></li></shiro:hasPermission>
 	</ul>
 	<form:form id="searchForm" modelAttribute="gScreen" action="${ctx}/screen/gScreen/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>

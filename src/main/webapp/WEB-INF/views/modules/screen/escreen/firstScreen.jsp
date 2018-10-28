@@ -7,16 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>桃树系统首页</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <script src="${ctxStatic}/screen/css/escreens/js/jquery-2.2.0.min.js"></script>
-    <script src="${ctxStatic}/screen/css/escreens/js/prefixfree.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${ctxStatic}/escreens/css/index.css"/>
+    <script src="${ctxStatic}/escreens/js/jquery-2.2.0.min.js"></script>
+    <script src="${ctxStatic}/escreens/js/prefixfree.min.js"></script>
     <style type="text/css">
         body{
-            background: url(${ctxStatic}/screen/css/escreens/images/indexbj2.png) no-repeat;
+            background: url(${ctxStatic}/escreens/images/indexbj2.png) no-repeat;
             background-size: 100% 100%;
             overflow: hidden;
         }
@@ -57,7 +58,7 @@
 <ul class="indexfoot">
     <c:forEach items="${eScreenParentList}" var="item">
     <li>
-        <a href="${ctx}/screen/escreen/eScreenParent/secondPage?parentId=${item.id}">
+        <a href="/jeesite/b/checkscreen/query/secondPage?parentId=${item.id}">
             <img src="${item.imgUrl}"/>
             <div>${item.businessName}</div>
         </a>

@@ -79,6 +79,7 @@ public class EScreenChildredController extends BaseController {
 		if (!beanValidator(model, eScreenChildred)){
 			return form(eScreenChildred, model);
 		}
+		eScreenChildred.setCompanyService(eScreenChildred.getCompanyService().replaceAll("，",","));
 		eScreenChildred.setImgUrl(getJson(eScreenChildred.getProductNames(),eScreenChildred.getImgUrls()));
 		eScreenChildredService.save(eScreenChildred);
 		addMessage(redirectAttributes, "保存公司详细成功");

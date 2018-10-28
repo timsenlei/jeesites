@@ -30,6 +30,14 @@
 		<include refid="gScreenJoins"/>
 		WHERE a.id = #{id}
 	</select>
+
+	<select id="selectForScreen" resultType="GScreen">
+		SELECT
+		<include refid="gScreenColumns"/>
+		FROM g_screen a
+		<include refid="gScreenJoins"/>
+		WHERE a.template_status = '1'
+	</select>
 	
 	<select id="findList" resultType="GScreen">
 		SELECT 

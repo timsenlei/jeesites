@@ -56,7 +56,7 @@
 			<label class="control-label">PPT图片：</label>
 			<div class="controls">
 				<input type="hidden" id="image" name="imgurl" value="${pPTControl.imgurl}" />
-				<sys:ckfinder input="image" type="thumb" uploadPath="/cms/article" selectMultiple="false"/>
+				<sys:ckfinder input="image" type="thumb" uploadPath="/cms/article" selectMultiple="true"/>
 			</div>
 		</div>
 		<div class="control-group">

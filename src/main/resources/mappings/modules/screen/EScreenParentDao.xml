@@ -67,7 +67,7 @@
 	<select id="querySecond" resultType="EScreenParent">
 		select
 		<include refid="eScreenParentColumns"/>
-		 from e_screen_parent a where parent_id=${parentId}
+		 from e_screen_parent a where parent_id=#{parentId}
 	</select>
 	<insert id="insert">
 		INSERT INTO e_screen_parent(

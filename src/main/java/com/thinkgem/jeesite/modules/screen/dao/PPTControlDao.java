@@ -16,4 +16,6 @@ import com.thinkgem.jeesite.modules.screen.entity.PPTControl;
 @MyBatisDao
 public interface PPTControlDao extends CrudDao<PPTControl> {
     public void updateStatus(String screen);
+
+    public PPTControl searchPPT(String screen);
 }

@@ -34,7 +34,6 @@ public class EScreenParent extends DataEntity<EScreenParent> {
 		super(id);
 	}
 
-	@Length(min=1, max=200, message="img_url长度必须介于 1 和 200 之间")
 	public String getImgUrl() {
 		return imgUrl;
 	}

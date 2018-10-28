@@ -49,7 +49,6 @@ public class EScreenChildred extends DataEntity<EScreenChildred> {
 		super(id);
 	}
 
-	@Length(min=0, max=200, message="img_url长度必须介于 0 和 200 之间")
 	public String getImgUrl() {
 		return imgUrl;
 	}

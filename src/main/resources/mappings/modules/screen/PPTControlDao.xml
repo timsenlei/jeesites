@@ -24,6 +24,13 @@
 		<include refid="pPTControlJoins"/>
 		WHERE a.id = #{id}
 	</select>
+	<select id="searchPPT" resultType="PPTControl">
+		SELECT
+		<include refid="pPTControlColumns"/>
+		FROM ppt_control a
+		<include refid="pPTControlJoins"/>
+		WHERE a.status = '1' and a.which_screen = #{whichScreen}
+	</select>
 	
 	<select id="findList" resultType="PPTControl">
 		SELECT 

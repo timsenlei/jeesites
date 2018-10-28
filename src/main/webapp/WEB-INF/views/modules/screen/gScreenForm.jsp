@@ -76,8 +76,8 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/screen/gScreen/">G屏列表</a></li>
-		<li class="active"><a href="${ctx}/screen/gScreen/form?id=${gScreen.id}">G屏<shiro:hasPermission name="screen:gScreen:edit">${not empty gScreen.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="screen:gScreen:edit">查看</shiro:lacksPermission></a></li>
+		<li><a href="${ctx}/screen/gScreen/">E屏列表</a></li>
+		<li class="active"><a href="${ctx}/screen/gScreen/form?id=${gScreen.id}">E屏<shiro:hasPermission name="screen:gScreen:edit">${not empty gScreen.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="screen:gScreen:edit">查看</shiro:lacksPermission></a></li>
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="gScreen" action="${ctx}/screen/gScreen/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>

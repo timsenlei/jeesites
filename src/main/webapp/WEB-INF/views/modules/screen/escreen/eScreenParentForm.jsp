@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>E屏管理</title>
+	<title>G屏管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -27,8 +27,9 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/screen/escreen/eScreenParent/">E屏列表页</a></li>
-		<li class="active"><a href="${ctx}/screen/escreen/eScreenParent/form?id=${eScreenParent.id}">E屏<shiro:hasPermission name="screen:escreen:eScreenParent:edit">${not empty eScreenParent.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="screen:escreen:eScreenParent:edit">查看</shiro:lacksPermission></a></li>
+		<li><a href="${ctx}/screen/escreen/eScreenParent/">G屏列表页</a></li>
+		<li class="active"><a href="${ctx}/screen/escreen/eScreenParent/form?id=${eScreenParent.id}">G屏<shiro:hasPermission name="screen:escreen:eScreenParent:edit">${not empty eScreenParent.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="screen:escreen:eScreenParent:edit">查看</shiro:lacksPermission></a></li>
+		<li></li><a href="${ctx}/screen/escreen/eScreenParent/firstPage">预览</a></li>
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="eScreenParent" action="${ctx}/screen/escreen/eScreenParent/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>

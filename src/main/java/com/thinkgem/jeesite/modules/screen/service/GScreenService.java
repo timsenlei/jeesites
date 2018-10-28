@@ -15,7 +15,7 @@ import com.thinkgem.jeesite.common.service.CrudService;
 import com.thinkgem.jeesite.modules.screen.dao.GScreenDao;
 
 /**
- * g屏代码Service
+ * E屏代码Service
  * @author zl
  * @version 2018-10-13
  */
@@ -49,5 +49,7 @@ public class GScreenService extends CrudService<GScreenDao, GScreen> {
 	public void updateStatus() {
 		gScreenDao.updateStatus();
 	}
-	
+	public GScreen selectForScreen(){
+		return gScreenDao.selectForScreen();
+	}
 }

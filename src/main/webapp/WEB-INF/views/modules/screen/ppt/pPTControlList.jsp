@@ -50,6 +50,8 @@
 				<shiro:hasPermission name="screen:ppt:pPTControl:edit"><td>
     				<a href="${ctx}/screen/ppt/pPTControl/form?id=${pPTControl.id}">修改</a>
     				<a href="${ctx}/screen/ppt/pPTControl/updateIng?id=${pPTControl.id}&whichScreen=${pPTControl.whichScreen}">设置使用中</a>
+					<a href="${ctx}/screen/ppt/pPTControl/preControl?id=${pPTControl.id}&type=1">预览控制台</a>
+					<a href="${ctx}/screen/ppt/pPTControl/preControl?id=${pPTControl.id}&type=2">预览PPT</a>
 					<a href="${ctx}/screen/ppt/pPTControl/delete?id=${pPTControl.id}" onclick="return confirmx('确认要删除该PPT吗？', this.href)">删除</a>
 				</td></shiro:hasPermission>
 			</tr>

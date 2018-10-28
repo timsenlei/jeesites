@@ -27,7 +27,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * g屏代码Controller
+ * E屏代码Controller
  * @author zl
  * @version 2018-10-13
  */

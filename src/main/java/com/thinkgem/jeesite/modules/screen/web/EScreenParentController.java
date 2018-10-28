@@ -106,8 +106,12 @@ public class EScreenParentController extends BaseController {
 	@RequestMapping(value = "thirdPage")
 	public String thirdPage(@RequestParam(required=false) String parentId, @RequestParam(required=false) String id, @RequestParam(required=false) String imgUrl, @RequestParam(required=false) String businessName,HttpServletRequest request, HttpServletResponse response, Model model) {
 		List<EScreenChildred> eScreenChildredList=eScreenChildredService.thirdScreen(Long.valueOf(id));
-		EScreenChildred eScreenChildred= eScreenChildredList.get(0);
-		Map productsMap= (Map) JsonMapper.fromJsonString(eScreenChildred.getImgUrl(),LinkedHashMap.class);
+		EScreenChildred eScreenChildred=null;
+		Map productsMap=new LinkedHashMap();
+		if(eScreenChildredList!=null && eScreenChildredList.size()>0){
+			eScreenChildred= eScreenChildredList.get(0);
+			productsMap= (Map) JsonMapper.fromJsonString(eScreenChildred.getImgUrl(),LinkedHashMap.class);
+		}
 		model.addAttribute("eScreenChildred", eScreenChildred);
 		model.addAttribute("comImgUrl", imgUrl);
 		model.addAttribute("comBusinessName", businessName);

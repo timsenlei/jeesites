@@ -95,5 +95,19 @@ public class PPTControlController extends BaseController {
 		addMessage(redirectAttributes, "删除PPT成功");
 		return "redirect:"+Global.getAdminPath()+"/screen/ppt/pPTControl/?repage";
 	}
+	@RequestMapping(value = "preControl")
+	public String preControl(@RequestParam(required=false)String id,@RequestParam(required=false)String type,Model model, RedirectAttributes redirectAttributes) {
+		PPTControl entity = null;
+		if (StringUtils.isNotBlank(id)){
+			entity = pPTControlService.get(id);
+		}
+		model.addAttribute("pPTControl", entity);
+		if(type.equals("1")){
+			return "modules/screen/ppt/backControl";
+		}else{
+			return "modules/screen/ppt/ppt";
+		}
+
+	}
 
 }

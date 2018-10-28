@@ -98,6 +98,9 @@
                 indexs++;
             }
         }
+        function companyNameChange(){
+            $("input[name='companyName']").val($("select[name='parentId'] option:selected").text());
+		}
 	</script>
 
 </head>
@@ -114,9 +117,11 @@
 		<div class="control-group">
 			<label class="control-label">公司名称：</label>
 			<div class="controls">
-				<select name="parentId" class="input-xlarge ">
+				<input type="hidden" name="companyName" value="${eScreenChildred.companyName}">
+				<select name="parentId" id="parentId" class="input-xlarge " onchange="companyNameChange()">
+					<option value="">请选择</option>
 					<c:forEach items="${listParent}" var="item">
-						<option value="${item.id}" <c:if test="${item.id==parentId}">selected</c:if>>${item.businessName}</option>
+						<option value="${item.id}" <c:if test="${item.id==eScreenChildred.parentId}">selected</c:if>>${item.businessName}</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -137,6 +142,15 @@
 			<label class="control-label">公司描述简介：</label>
 			<div class="controls">
 				<form:input path="companyPersonRece" htmlEscape="false" maxlength="100" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">状态：</label>
+			<div class="controls">
+				<select name="status">
+					<option value="1" <c:if test="${eScreenChildred.status=='1'}">selected</c:if> >生效</option>
+					<option value="0" <c:if test="${eScreenChildred.status=='0'}">selected</c:if> >无效</option>
+				</select>
 			</div>
 		</div>
 		<div class="control-group" id="picture_id">

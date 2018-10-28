@@ -33,12 +33,25 @@
 		WHERE del_flag = #{DEL_FLAG_NORMAL} 
 		ORDER BY type, sort, update_date DESC
 	</select>
-	
+	<select id="findTypeByType"  resultType="Dict">
+		SELECT
+			*
+		FROM sys_dict
+		WHERE type = #{tyep}
+	</select>
 	<select id="findTypeList" resultType="string">
 		SELECT 
 			type 
 		FROM sys_dict 
 		WHERE del_flag = #{DEL_FLAG_NORMAL} 
+		GROUP BY type
+		ORDER BY type
+	</select>
+	<select id="findDict" resultType="Dict">
+		SELECT
+			type
+		FROM sys_dict
+		WHERE del_flag = #{DEL_FLAG_NORMAL}
 		GROUP BY type
 		ORDER BY type
 	</select>

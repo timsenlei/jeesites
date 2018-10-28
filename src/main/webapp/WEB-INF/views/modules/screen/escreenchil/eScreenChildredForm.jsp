@@ -129,7 +129,7 @@
 		<div class="control-group">
 			<label class="control-label">公司服务：</label>
 			<div class="controls">
-				<form:input path="companyService" htmlEscape="false" maxlength="500" class="input-xlarge "/>
+				<form:input path="companyService" htmlEscape="false" maxlength="500" class="input-xlarge "/><span style="color: red">*多个词汇用逗号分隔</span>
 			</div>
 		</div>
 		<div class="control-group">

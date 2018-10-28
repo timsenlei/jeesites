@@ -70,7 +70,7 @@
             }
 		}
 		function deleteRe(obj) {
-		    alert($(obj).parent().remove())
+		   $(obj).parent().remove()
         }
 	</script>
 </head>

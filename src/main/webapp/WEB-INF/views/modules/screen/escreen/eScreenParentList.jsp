@@ -17,10 +17,10 @@
 	</script>
 </head>
 <body>
-	<li class="nav nav-tabs">
+	<ul class="nav nav-tabs">
 		<li class="active"><a href="${ctx}/screen/escreen/eScreenParent/">G屏列表</a></li>
 		<li><a href="${ctx}/screen/escreen/eScreenParent/form">G屏添加</a></li>
-		<li></li><a href="${ctx}/screen/escreen/eScreenParent/firstPage">预览</a></li>
+		<li><a href="${ctx}/screen/escreen/eScreenParent/firstPage">预览</a></li>
 	</ul>
 	<form:form id="searchForm" modelAttribute="eScreenParent" action="${ctx}/screen/escreen/eScreenParent/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>

@@ -128,4 +128,11 @@ private static String  getJson(String [] name,String [] value){
 	}
 	return JsonMapper.toJsonString(map);
 }
+	@RequestMapping(value = "viewPMT")
+	public String viewPMT(Model model, RedirectAttributes redirectAttributes) {
+
+		return "modules/screen/gscreen/viewPMT";
+
+
+	}
 }

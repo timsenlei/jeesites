@@ -35,6 +35,61 @@ public class GScreen extends DataEntity<GScreen> {
 	private String[] tradeOnlineChartsValue;
 	private String[] cloudSoftTopName;
 	private String[] cloudSoftTopValue;
+	private String changeFd1;
+	private String changeFd2;
+	private String changeFd3;
+	private String changePl1;
+	private String changePl2;
+	private String changePl3;
+
+	public String getChangeFd1() {
+		return changeFd1;
+	}
+
+	public void setChangeFd1(String changeFd1) {
+		this.changeFd1 = changeFd1;
+	}
+
+	public String getChangeFd2() {
+		return changeFd2;
+	}
+
+	public void setChangeFd2(String changeFd2) {
+		this.changeFd2 = changeFd2;
+	}
+
+	public String getChangeFd3() {
+		return changeFd3;
+	}
+
+	public void setChangeFd3(String changeFd3) {
+		this.changeFd3 = changeFd3;
+	}
+
+	public String getChangePl1() {
+		return changePl1;
+	}
+
+	public void setChangePl1(String changePl1) {
+		this.changePl1 = changePl1;
+	}
+
+	public String getChangePl2() {
+		return changePl2;
+	}
+
+	public void setChangePl2(String changePl2) {
+		this.changePl2 = changePl2;
+	}
+
+	public String getChangePl3() {
+		return changePl3;
+	}
+
+	public void setChangePl3(String changePl3) {
+		this.changePl3 = changePl3;
+	}
+
 	public GScreen() {
 		super();
 	}

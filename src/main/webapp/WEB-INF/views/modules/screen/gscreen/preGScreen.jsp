@@ -190,8 +190,14 @@
         })
     }
     var num1=${gScreen.consumerSum};
-    var num2=${gScreen.enterpriseSum}
-    var num3=${gScreen.sumOfMoney}
+    var num2=${gScreen.enterpriseSum};
+    var num3=${gScreen.sumOfMoney};
+    var changFd1=${gScreen.changeFd1};
+    var changFd2=${gScreen.changeFd2};
+    var changFd3=${gScreen.changeFd3};
+    var changPl1=${gScreen.changePl1}*1000;
+    var changPl2=${gScreen.changePl2}*1000;
+    var changPl3=${gScreen.changePl3}*1000;
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -202,28 +208,32 @@
     setInterval(function() {
         if(num1<353200){
 //			console.log(format(num1=num1+getRandomInt(1, 10)))
-            $("#num1").text(format(num1=num1+getRandomInt(1, 10)));//1-10
+            $("#num1").text(format(num1=num1+changFd1));//1-10
+            // $("#num1").text(format(num1=num1+getRandomInt(1, 10)));//1-10
             return false
         }
-    }, 20000);
+    }, changPl1);
 
     setInterval(function() {
 //		console.log(getRandomInt(1, 5))
-        if(num2<30300){
-            $("#num2").text(format(num2=num2+getRandomInt(1, 5)));//1-6
-            return false
-        }
-    }, 30000);
+
+        $("#num2").text(format(num2=num2+changFd2));//1-6
+        // $("#num2").text(format(num2=num2+getRandomInt(1, 5)));//1-6
+        return false
+
+    }, changPl2);
     var arr=[1000,1500,2000,2500,3000,3500,4000,4500,5000]
     setInterval(function() {
 
 //		console.log(getRandomInt(1000,5000))
 //		if(num3<2600000000){
-        $("#num3").text(format(num3=num3+arr[Math.floor(Math.random()*arr.length)]));//按数组的方法变动
+//         $("#num3").text(format(num3=num3+arr[Math.floor(Math.random()*arr.length)]));//按数组的方法变动
+        $("#num3").text(format(num3=num3+changFd3));//按数组的方法变动
 //			$("#num3").text(format(num3=num3+getRandomInt(1000,5000)));
         return false
 //		}
-    }, 15000);
+    }, changPl3);
+
 
 
 

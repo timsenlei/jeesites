@@ -45,6 +45,25 @@ public class CheckScreenController {
         Map moneyMap= (Map) JsonMapper.fromJsonString(gScreen.getRegionMoneyTop(),LinkedHashMap.class);
         Map onlieMap= (Map) JsonMapper.fromJsonString(gScreen.getTradeOnlineCharts(),LinkedHashMap.class);
         Map cloudMap= (Map) JsonMapper.fromJsonString(gScreen.getCloudSoftTop(),LinkedHashMap.class);
+        Map<String,Map<String,String>> map= (Map) JsonMapper.fromJsonString(gScreen.getExtends1(),Map.class);
+        if(map!=null){
+            for (Map.Entry<String,Map<String,String>> entry : map.entrySet()) {
+                System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+                Map<String,String> maps=entry.getValue();
+                for(Map.Entry<String,String> entrys : maps.entrySet()){
+                    if(entry.getKey().equals("chang1")){
+                        gScreen.setChangeFd1(entrys.getKey());
+                        gScreen.setChangePl1(entrys.getValue());
+                    }else if(entry.getKey().equals("chang2")){
+                        gScreen.setChangeFd2(entrys.getKey());
+                        gScreen.setChangePl2(entrys.getValue());
+                    }else if(entry.getKey().equals("chang3")){
+                        gScreen.setChangeFd3(entrys.getKey());
+                        gScreen.setChangePl3(entrys.getValue());
+                    }
+                }
+            }
+        }
         model.addAttribute("gScreen", gScreen);
         model.addAttribute("bussinessMap", bussinessMap);
         model.addAttribute("moneyMap", moneyMap);
@@ -61,6 +80,7 @@ public class CheckScreenController {
             return "modules/screen/escreen/firstScreen";
         }else{
             PPTControl entity= pPTControlService.searchPPT(sceen);
+            entity.setImgurl(entity.getImgurl().replaceAll("/_thumbs/images","/images"));
             model.addAttribute("pPTControl", entity);
             return "modules/screen/ppt/ppt";
         }

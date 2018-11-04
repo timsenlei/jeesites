@@ -97,18 +97,21 @@
 			<label class="control-label">全球注册用户：</label>
 			<div class="controls">
 				<form:input path="consumerSum" htmlEscape="false" maxlength="20" class="input-xlarge  digits"/>
+				变化幅度：<input type="text" name="changeFd1" class="input-large-money" value="${gScreen.changeFd1}" >变化频率(秒)：<input type="text" name="changePl1" value="${gScreen.changePl1}"  class="input-large-money" >
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">注册企业：</label>
 			<div class="controls">
 				<form:input path="enterpriseSum" htmlEscape="false" maxlength="20" class="input-xlarge  digits"/>
+				变化幅度：<input type="text" name="changeFd2" class="input-large-money" value="${gScreen.changeFd2}"  >变化频率(秒)：<input type="text" name="changePl2" value="${gScreen.changePl2}"  class="input-large-money" >
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">平台累计发包金额：</label>
 			<div class="controls">
 				<form:input path="sumOfMoney" htmlEscape="false" class="input-xlarge "/>
+				变化幅度：<input type="text" name="changeFd3" class="input-large-money" value="${gScreen.changeFd3}"  >变化频率(秒)：<input type="text" name="changePl3" value="${gScreen.changePl3}"  class="input-large-money" >
 			</div>
 		</div>
 		<div class="control-group" id="moneyTopId" >

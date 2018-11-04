@@ -23,6 +23,7 @@ import com.thinkgem.jeesite.common.web.BaseController;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 import com.thinkgem.jeesite.modules.screen.service.GScreenService;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -61,6 +62,25 @@ public class GScreenController extends BaseController {
 	@RequiresPermissions("screen:gScreen:view")
 	@RequestMapping(value = "form")
 	public String form(GScreen gScreen, Model model) {
+		Map<String,Map<String,String>> map= (Map) JsonMapper.fromJsonString(gScreen.getExtends1(),Map.class);
+		if(map!=null){
+			for (Map.Entry<String,Map<String,String>> entry : map.entrySet()) {
+				System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+				Map<String,String> maps=entry.getValue();
+				for(Map.Entry<String,String> entrys : maps.entrySet()){
+					if(entry.getKey().equals("chang1")){
+						gScreen.setChangeFd1(entrys.getKey());
+						gScreen.setChangePl1(entrys.getValue());
+					}else if(entry.getKey().equals("chang2")){
+						gScreen.setChangeFd2(entrys.getKey());
+						gScreen.setChangePl2(entrys.getValue());
+					}else if(entry.getKey().equals("chang3")){
+						gScreen.setChangeFd3(entrys.getKey());
+						gScreen.setChangePl3(entrys.getValue());
+					}
+				}
+			}
+		}
 		model.addAttribute("gScreen", gScreen);
 		return "modules/screen/gscreen/gScreenForm";
 	}
@@ -78,6 +98,11 @@ public class GScreenController extends BaseController {
 		gScreen.setTradeOnlineCharts(getJson(gScreen.getTradeOnlineChartsName(),gScreen.getTradeOnlineChartsValue()));
 		gScreen.setCoreArea(gScreen.getCoreArea().replace("，",","));
 		gScreen.setSearchHotWords(gScreen.getSearchHotWords().replace("，",","));
+		Map<String,Map<String,String>> mmps=new HashMap<String, Map<String, String>>();
+		mmps.put("chang1",getMap(gScreen.getChangeFd1(),gScreen.getChangePl1()));
+		mmps.put("chang2",getMap(gScreen.getChangeFd2(),gScreen.getChangePl2()));
+		mmps.put("chang3",getMap(gScreen.getChangeFd3(),gScreen.getChangePl3()));
+		gScreen.setExtends1(JsonMapper.toJsonString(mmps));
 		gScreenService.save(gScreen);
 		addMessage(redirectAttributes, "保存成功");
 		return "redirect:"+Global.getAdminPath()+"/screen/gScreen/?repage";
@@ -97,6 +122,7 @@ public class GScreenController extends BaseController {
 		gScreenService.updateStatus();
 		//再设置新模板
 		GScreen gScreen=gScreenService.get(id);
+
 		gScreen.setTemplateStatus("1");
 		gScreenService.save(gScreen);
 		addMessage(redirectAttributes, "设置成功");
@@ -110,6 +136,25 @@ public class GScreenController extends BaseController {
 		GScreen gScreen=gScreenService.get(id);
 //		gScreen.setTemplateStatus("1");
 //		gScreenService.save(gScreen);
+		Map<String,Map<String,String>> map= (Map) JsonMapper.fromJsonString(gScreen.getExtends1(),Map.class);
+		if(map!=null){
+			for (Map.Entry<String,Map<String,String>> entry : map.entrySet()) {
+				System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+				Map<String,String> maps=entry.getValue();
+				for(Map.Entry<String,String> entrys : maps.entrySet()){
+					if(entry.getKey().equals("chang1")){
+						gScreen.setChangeFd1(entrys.getKey());
+						gScreen.setChangePl1(entrys.getValue());
+					}else if(entry.getKey().equals("chang2")){
+						gScreen.setChangeFd2(entrys.getKey());
+						gScreen.setChangePl2(entrys.getValue());
+					}else if(entry.getKey().equals("chang3")){
+						gScreen.setChangeFd3(entrys.getKey());
+						gScreen.setChangePl3(entrys.getValue());
+					}
+				}
+			}
+		}
 		Map bussinessMap= (Map) JsonMapper.fromJsonString(gScreen.getRegionBusinessTop(),LinkedHashMap.class);
 		Map moneyMap= (Map) JsonMapper.fromJsonString(gScreen.getRegionMoneyTop(),LinkedHashMap.class);
 		Map onlieMap= (Map) JsonMapper.fromJsonString(gScreen.getTradeOnlineCharts(),LinkedHashMap.class);
@@ -127,6 +172,11 @@ private static String  getJson(String [] name,String [] value){
 		map.put(name[i],value[i]);//map集合添加数据
 	}
 	return JsonMapper.toJsonString(map);
+}
+private static Map<String,String> getMap(String str1,String str2){
+	Map<String,String> map=new HashMap<String, String>();
+	map.put(str1,str2);
+	return map;
 }
 	@RequestMapping(value = "viewPMT")
 	public String viewPMT(Model model, RedirectAttributes redirectAttributes) {

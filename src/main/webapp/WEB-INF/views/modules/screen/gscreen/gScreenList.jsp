@@ -33,7 +33,7 @@
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead>
 			<tr>
-				<th>模板名称</th><th>全球注册用户</th><th>注册企业</th><th>累计发包金额</th><th>区域累计签约金额</th><th>线上商家数量</th><th>服务地区分布</th><th>当前模板</th><shiro:hasPermission name="screen:gScreen:edit"><th>操作</th></shiro:hasPermission>
+				<th>模板名称</th><th>全球注册用户</th><th>注册企业</th><th>累计发包金额</th><th>区域累计签约金额</th><th>线上商家数量</th><th>当前模板</th><shiro:hasPermission name="screen:gScreen:edit"><th>操作</th></shiro:hasPermission>
 			</tr>
 
 		</thead>
@@ -46,12 +46,11 @@
 				<td>${gScreen.sumOfMoney}</td>
 				<td>${gScreen.regionMoneyTop}</td>
 				<td>${gScreen.tradeOnlineCharts}</td>
-				<td>${gScreen.coreArea}</td>
 				<td style="color: red"><c:if test="${gScreen.templateStatus=='1'}">使用中</c:if></td>
 				<shiro:hasPermission name="screen:gScreen:edit"><td>
-    				<a href="${ctx}/screen/gScreen/form?id=${gScreen.id}">修改</a>|
-					<a href="${ctx}/screen/gScreen/delete?id=${gScreen.id}" onclick="return confirmx('确认要删除吗？', this.href)">删除</a>|
-					<a href="${ctx}/screen/gScreen/useThisTem?id=${gScreen.id}" onclick="return confirmx('确认要要使用当前模板么？', this.href)">置为使用中</a>|
+    				<a href="${ctx}/screen/gScreen/form?id=${gScreen.id}">修改</a><br>
+					<a href="${ctx}/screen/gScreen/delete?id=${gScreen.id}" onclick="return confirmx('确认要删除吗？', this.href)">删除</a><br>
+					<a href="${ctx}/screen/gScreen/useThisTem?id=${gScreen.id}" onclick="return confirmx('确认要要使用当前模板么？', this.href)">使用中</a><br>
 					<a href="${ctx}/screen/gScreen/preLook?id=${gScreen.id}">预览</a>
 				</td></shiro:hasPermission>
 			</tr>

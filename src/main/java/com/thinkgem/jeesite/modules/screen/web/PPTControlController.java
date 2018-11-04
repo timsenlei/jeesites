@@ -100,6 +100,7 @@ public class PPTControlController extends BaseController {
 		PPTControl entity = null;
 		if (StringUtils.isNotBlank(id)){
 			entity = pPTControlService.get(id);
+			entity.setImgurl(entity.getImgurl().replaceAll("/_thumbs/images","/images"));
 		}
 		model.addAttribute("pPTControl", entity);
 		if(type.equals("1")){

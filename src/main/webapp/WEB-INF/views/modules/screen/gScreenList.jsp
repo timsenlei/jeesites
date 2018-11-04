@@ -49,9 +49,9 @@
 				<td>${gScreen.coreArea}</td>
 				<td style="color: red"><c:if test="${gScreen.templateStatus=='1'}">使用中</c:if></td>
 				<shiro:hasPermission name="screen:gScreen:edit"><td>
-    				<a href="${ctx}/screen/gScreen/form?id=${gScreen.id}">修改</a>|
-					<a href="${ctx}/screen/gScreen/delete?id=${gScreen.id}" onclick="return confirmx('确认要删除吗？', this.href)">删除</a>|
-					<a href="${ctx}/screen/gScreen/useThisTem?id=${gScreen.id}" onclick="return confirmx('确认要要使用当前模板么？', this.href)">置为使用中</a>|
+    				<a href="${ctx}/screen/gScreen/form?id=${gScreen.id}">修改</a><br>
+					<a href="${ctx}/screen/gScreen/delete?id=${gScreen.id}" onclick="return confirmx('确认要删除吗？', this.href)">删除</a><br>
+					<a href="${ctx}/screen/gScreen/useThisTem?id=${gScreen.id}" onclick="return confirmx('确认要要使用当前模板么？', this.href)">置为使用中</a><br>
 					<a href="${ctx}/screen/gScreen/preLook?id=${gScreen.id}">预览</a>
 				</td></shiro:hasPermission>
 			</tr>

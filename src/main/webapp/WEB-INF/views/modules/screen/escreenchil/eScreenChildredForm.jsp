@@ -38,8 +38,7 @@
             imageId=obj1;
             imagePreviewId=obj2;
             var date = new Date(), year = date.getFullYear(), month = (date.getMonth()+1)>9?date.getMonth()+1:"0"+(date.getMonth()+1);
-            var url = "/jeesite/static/ckfinder/ckfinder.html?type=images&start=images:/cms/article/"+year+"/"+month+
-                "/&action=js&func=imageSelectAction&thumbFunc=imageThumbSelectAction&cb=imageCallback&dts=1&sm=0";
+            var url = "/jeesite/static/ckfinder/ckfinder.html?start=images:/&action=js&func=imageSelectAction&thumbFunc=imageThumbSelectAction&cb=imageCallback&dts=1&sm=0";
             windowOpen(url,"文件管理",1000,700);
             //top.$.jBox("iframe:"+url+"&pwMf=1", {title: "文件管理", width: 1000, height: 500, buttons:{'关闭': true}});
         }

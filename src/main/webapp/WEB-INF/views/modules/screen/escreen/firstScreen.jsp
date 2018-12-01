@@ -58,7 +58,7 @@
 <ul class="indexfoot">
     <c:forEach items="${eScreenParentList}" var="item">
     <li>
-        <a href="/jeesite/b/checkscreen/query/secondPage?parentId=${item.id}">
+        <a href="/jeesite/b/checkscreen/query/secondPage?parentId=${item.id}&companys=${item.companys}">
             <img src="${item.imgUrl}"/>
             <div>${item.businessName}</div>
         </a>
@@ -66,7 +66,7 @@
     </c:forEach>
 </ul>
 </body>
-<script src='${ctxStatic}/screen/css/escreens/js/stopExecutionOnTimeout.js'></script>
+<script src='${ctxStatic}/escreens/js/stopExecutionOnTimeout.js'></script>
 <script>
     $(document).ready(function () {
         var stars = 800;

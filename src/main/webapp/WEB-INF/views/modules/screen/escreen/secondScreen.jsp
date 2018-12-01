@@ -15,12 +15,12 @@
 <body>
 <a href="/jeesite/b/checkscreen/query/firstPage" class="back"><img src="${ctxStatic}/escreens/images/back.png"/>返回</a>
 <h1 class="title">
-    <img src="${entity.imgUrl}"/>${entity.businessName}   <span>54881个</span>
+    <img src="${entity.imgUrl}"/>${entity.businessName}   <span>${companys}个</span>
 </h1>
 <ul class="section1 overflow">
     <c:forEach items="${eScreenParentList}" var="item">
     <li>
-        <a href="/jeesite/b/checkscreen/query/thirdPage?imgUrl=${item.imgUrl}&parentId=${entity.id}&businessName=${item.businessName}&id=${item.id}">
+        <a href="/jeesite/b/checkscreen/query/thirdPage?imgUrl=${item.imgUrl}&parentId=${entity.id}&businessName=${item.businessName}&id=${item.id}&companys=${companys}">
             <img src="${item.imgUrl}" class="fl"/>
             <div class="fr">${item.businessName}</div>
         </a>

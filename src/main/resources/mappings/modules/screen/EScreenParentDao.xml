@@ -9,7 +9,8 @@
 		a.parent_id AS "parent.id",
 		a.if_is_parent AS "ifIsParent",
 		a.status AS "status",
-		a.updat_date AS "updatDate"
+		a.updat_date AS "updatDate",
+		a.companys AS "companys"
 	</sql>
 	
 	<sql id="eScreenParentJoins">
@@ -61,7 +62,8 @@
 	<select id="queryParent" resultType="EScreenParent">
 		select a.business_name AS "businessName",
 		 a.id AS "id",
-		 a.img_url AS "imgUrl"
+		 a.img_url AS "imgUrl",
+		 a.companys AS "companys"
 		 from e_screen_parent a where if_is_parent='1'
 	</select>
 	<select id="querySecond" resultType="EScreenParent">
@@ -77,14 +79,16 @@
 			parent_id,
 			if_is_parent,
 			status,
-			updat_date
+			updat_date,
+			companys
 		) VALUES (
 			#{imgUrl},
 			#{businessName},
 			#{parent.id},
 			#{ifIsParent},
 			#{status},
-			now()
+			now(),
+			#{companys}
 		)
 	</insert>
 	
@@ -95,7 +99,8 @@
 			parent_id = #{parent.id},
 			if_is_parent = #{ifIsParent},
 			status = #{status},
-			updat_date =now()
+			updat_date =now(),
+			companys=#{companys}
 		WHERE id = #{id}
 	</update>
 	

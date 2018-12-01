@@ -92,15 +92,17 @@ public class CheckScreenController {
              return "modules/screen/ppt/backControl";
         }
     @RequestMapping(value = "secondPage")
-    public String secondPage(@RequestParam(required=false) String parentId, HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String secondPage(@RequestParam(required=false) String parentId,@RequestParam(required=false) String companys, HttpServletRequest request, HttpServletResponse response, Model model) {
+
         EScreenParent entity = eScreenParentService.get(parentId);
         List<EScreenParent> eScreenParentList=eScreenParentService.querySecond(parentId);
         model.addAttribute("eScreenParentList", eScreenParentList);
+        model.addAttribute("companys", companys);
         model.addAttribute("entity", entity);
         return "modules/screen/escreen/secondScreen";
     }
     @RequestMapping(value = "thirdPage")
-    public String thirdPage(@RequestParam(required=false) String parentId, @RequestParam(required=false) String id, @RequestParam(required=false) String imgUrl, @RequestParam(required=false) String businessName,HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String thirdPage(@RequestParam(required=false) String parentId, @RequestParam(required=false) String id,@RequestParam(required=false) String companys, @RequestParam(required=false) String imgUrl, @RequestParam(required=false) String businessName,HttpServletRequest request, HttpServletResponse response, Model model) {
         List<EScreenChildred> eScreenChildredList=eScreenChildredService.thirdScreen(Long.valueOf(id));
         EScreenChildred eScreenChildred=null;
         Map productsMap=new LinkedHashMap();
@@ -113,6 +115,7 @@ public class CheckScreenController {
         model.addAttribute("comBusinessName", businessName);
         model.addAttribute("parentId", parentId);
         model.addAttribute("productsMap", productsMap);
+        model.addAttribute("companys", companys);
         return "modules/screen/escreen/thirdScreen";
     }
     @RequestMapping(value ="firstPage")

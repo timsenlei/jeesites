@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="${ctxStatic}/escreens/css/index.css"/>
 </head>
 <body>
-<a href="/jeesite/b/checkscreen/query/secondPage?parentId=${parentId}" class="back"><img src="${ctxStatic}/escreens/images/back.png"/>返回</a>
+<a href="/jeesite/b/checkscreen/query/secondPage?parentId=${parentId}&companys=${companys}" class="back"><img src="${ctxStatic}/escreens/images/back.png"/>返回</a>
 <header class="header ">
     <div class="logobox fl">
         <img src="${comImgUrl}"/>

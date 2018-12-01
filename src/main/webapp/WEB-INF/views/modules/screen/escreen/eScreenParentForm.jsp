@@ -22,7 +22,16 @@
 					}
 				}
 			});
+			fun();
 		});
+		function fun() {
+		    	if($("select[name='ifIsParent'] option:selected").val()=='1'){
+                    $("#companys").show();
+				}else{
+                    $("#companys").hide();
+				}
+
+        }
 	</script>
 </head>
 <body>
@@ -61,10 +70,16 @@
 		<div class="control-group">
 			<label class="control-label">是否为父节点：</label>
 			<div class="controls">
-				<select name="ifIsParent">
+				<select name="ifIsParent" onchange="fun()">
 					<option value="0" <c:if test="${eScreenParent.ifIsParent=='0'}">selected</c:if>	>否</option>
 					<option value="1" <c:if test="${eScreenParent.ifIsParent=='1'}">selected</c:if>>是</option>
 				</select>
+			</div>
+		</div>
+		<div class="control-group" id="companys">
+			<label class="control-label">公司数量：</label>
+			<div class="controls">
+				<form:input path="companys" htmlEscape="false" maxlength="100" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="form-actions">

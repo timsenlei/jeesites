@@ -25,7 +25,16 @@ public class EScreenParent extends DataEntity<EScreenParent> {
 	private String ifIsParent;		// if_is_parent
 	private String status;		// status
 	private Date updatDate;		// updat_date
-	
+	private String companys;
+
+	public String getCompanys() {
+		return companys;
+	}
+
+	public void setCompanys(String companys) {
+		this.companys = companys;
+	}
+
 	public EScreenParent() {
 		super();
 	}

@@ -20,6 +20,7 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="${ctx}/screen/escreenchil/eScreenChildred/">公司详细列表</a></li>
 		<shiro:hasPermission name="screen:escreenchil:eScreenChildred:edit"><li><a href="${ctx}/screen/escreenchil/eScreenChildred/form">公司详细添加</a></li></shiro:hasPermission>
+		<li><a href="${ctx}/screen/escreenchil/eScreenChildred/uploadList">公司详细列表上传</a></li>
 	</ul>
 	<form:form id="searchForm" modelAttribute="eScreenChildred" action="${ctx}/screen/escreenchil/eScreenChildred/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>

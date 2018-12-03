@@ -34,14 +34,14 @@
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead>
 			<tr>
-				<th>名称</th><th>所属上级</th><th>是否为父节点</th><th>操作</th>
+				<th>ID</th><th>名称</th><th>所属上级</th><th>是否为父节点</th><th>操作</th>
 			</tr>
 		</thead>
 		<tbody>
 		<c:forEach items="${page.list}" var="eScreenParent">
 			<tr>
+				<td>${eScreenParent.id}</td>
 				<td>${eScreenParent.businessName}</td>
-
 				<td>${eScreenParent.parent.id}</td>
 				<td><c:if test="${eScreenParent.ifIsParent=='0'}">否</c:if><c:if test="${eScreenParent.ifIsParent=='1'}">是</c:if></td>
 				<td>

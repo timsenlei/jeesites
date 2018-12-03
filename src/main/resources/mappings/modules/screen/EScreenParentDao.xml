@@ -71,7 +71,7 @@
 		<include refid="eScreenParentColumns"/>
 		 from e_screen_parent a where parent_id=#{parentId}
 	</select>
-	<insert id="insert">
+	<insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="com.thinkgem.jeesite.modules.screen.entity.EScreenParent">
 		INSERT INTO e_screen_parent(
 
 			img_url,

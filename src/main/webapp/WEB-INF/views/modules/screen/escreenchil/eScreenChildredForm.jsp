@@ -107,6 +107,7 @@
 	<ul class="nav nav-tabs">
 		<li><a href="${ctx}/screen/escreenchil/eScreenChildred/">公司详细列表</a></li>
 		<li class="active"><a href="${ctx}/screen/escreenchil/eScreenChildred/form?id=${eScreenChildred.id}">公司详细<shiro:hasPermission name="screen:escreenchil:eScreenChildred:edit">${not empty eScreenChildred.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="screen:escreenchil:eScreenChildred:edit">查看</shiro:lacksPermission></a></li>
+		<li><a href="${ctx}/screen/escreenchil/eScreenChildred/uploadList">公司详细列表上传</a></li>
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="eScreenChildred" action="${ctx}/screen/escreenchil/eScreenChildred/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
